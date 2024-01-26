@@ -1,0 +1,113 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # Group Project\
+\
+This project is a Python-based web scraping, data processing, and website interaction project that collects data from '{\field{\*\fldinst{HYPERLINK "https://www.wikipedia.org/"}}{\fldrslt https://www.wikipedia.org}}\'92, \
+and stores it in an SQLite database, and serves the data through a Flask-based website. The collected data is processed and cleaned before being stored, \
+and users can interact with the data on the website.\
+\
+Objective of this project created is to let user see list of Top 200 songs every time they log in the website. They can see list and search for name of songs from their list.\
+\
+## Requirements\
+\
+To successfully complete this project, the following requirements need to be met:\
+\
+1. **Data Collection**: Data should be collected (legally) from \'91{\field{\*\fldinst{HYPERLINK "https://www.wikipedia.org/"}}{\fldrslt https://www.wikipedia.org}}\'92 website through web scraping. \
+The collected data should include at least 10 pages of information and have the following columns:\
+\
+   - Title\
+   - Artist\
+\
+   There should be a minimum of 100 rows of data.\
+\
+2. **Data Processing**: The collected data should be processed to clean and enhance it. At least three distinct actions should be taken, such as normalizing text, \
+extracting numerical values, and formatting specific columns.\
+\
+3. **Database**: The processed data should be stored in an SQLite database named 'database.db'. The database should have atleast one table, and both database creation and \
+data insertion should be done using the sqlite3 package.\
+\
+4. **Website Interaction**: Users should interact with the data through a website built using Flask and SQLAlchemy. The website should have basic formatting and include the following pages:\
+\
+   - Should be able to search and login to see information that website states.\
+\
+   Through the website, a user should be able to:\
+   - Search for a record in the database and view the result (at least through one variable).\
+\
+\
+5. **Repository Structure**: All project-related code should be in a single GitHub repository. The repository structure should include the following files:\
+\
+   - web_scrape.ipynb\
+   - data_processing.ipynb\
+   - database.ipynb\
+   - Website.ipynb\
+   - Readme.md\
+   - requirements.txt\
+   - Template.html\
+\
+## Usage\
+\
+1. Clone this GitHub repository to your local machine.\
+\
+2. Ensure you have Python installed on your system.\
+\
+3. Create a virtual environment to isolate project dependencies:\
+\
+   ```bash\
+   pip install virtualenv\
+   python -m venv demo\
+   ```\
+\
+4. Activate the virtual environment:\
+\
+   - On Windows:\
+\
+   ```bash\
+   demo\\Scripts\\activate\
+   ```\
+\
+   - On macOS and Linux:\
+\
+   ```bash\
+   source demo/bin/activate\
+   ```\
+\
+5. Install the required packages:\
+\
+   ```bash\
+   pip install -r requirements.txt\
+   ```\
+\
+6. Run the project using the following commands:\
+    ```\
+    jupyter notebook\
+    \
+   - Once the notebook server starts running, open the codes and click on run button.\
+\
+   - To perform data collection and processing:\
+   \
+     web_scrape.ipynb\
+     data_processing.ipynb\
+     ```\
+\
+   - To set up the database:\
+   \
+     ```\
+     database.ipynb\
+     ```\
+\
+   - To start the website:\
+   \
+     ```\
+     Website.ipynb\
+     ```\
+\
+   Access the website in your web browser at `http://localhost:5000/`.\
+\
+## Submission\
+\
+To submit this project, please upload a link to the GitHub repository containing all the code for your project. Each group should make one submission.}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 200 Billboard Chart Of US Songs In Year 2022</title>
+    <style>
+       body {
+			background-image: url('/static/pic1.jpg');
+            background-position: center;
+            background-size: cover;
+            background-color: black;
+			background-attachment: fixed;
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+        }
+
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: black;
+        }
+
+        th {
+            text-align: center;
+            font-weight: bold;
+            color: black;
+        }
+
+        #music-player {
+            width: 400px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+			margin: auto;
+        }
+
+        #searchBox {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        #searchBox:focus {
+            border-color: #4CAF50;
+        }
+
+        #searchButton {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #searchButton:hover {
+            background-color: #45a049;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .play-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .play-button:hover {
+            background-color: #45a049;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Top 200 Billboard Chart Of US Songs In Year 2022</h1>
+    </header>
+
+    <div id="music-player" style="text-align: center; margin-bottom: 20px; font-weight: bold; color: black;">
+        <input type="text" id="searchBox" placeholder="Search...">
+        
+
+
+<table style="text-align: center; margin-bottom: 20px; font-weight: bold; color: black;">
+    
+    <thead>
+        <tr>
+            <th style="text-align: center; font-weight: bold; color: black;">Title</th>
+            <th style="text-align: center; font-weight: bold; color: black;">Artist</th>
+			<th> </th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        {% for row in rows %}
+            <tr>
+                <td>{{ row["Title"] }}</td>
+                <td>{{ row["Artist"] }}</td>
+				<td>
+				<button class="play-button" onclick="openYouTubeLink('{{ row["URL"] }}')">Play</button>
+				</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+    </div>
+
+    <script>
+        function openYouTubeLink(youtubeLink) {
+            window.open(youtubeLink, '_blank');
+        }
+
+        const searchBox = document.getElementById('searchBox');
+        const table = document.querySelector('table');
+
+        searchBox.addEventListener('keyup', () => {
+            const filter = searchBox.value.toUpperCase();
+            const rows = table.querySelectorAll('tbody tr');
+
+            rows.forEach(row => {
+                const cells = row.getElementsByTagName('td');
+                let display = false;
+
+                for (let i = 0; i < cells.length; i++) {
+                    const cell = cells[i];
+
+                    if (cell) {
+                        const textValue = cell.textContent || cell.innerText;
+
+                        if (textValue.toUpperCase().indexOf(filter) > -1) {
+                            display = true;
+                            break;
+                        }
+                    }
+                }
+
+                row.style.display = display ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>
